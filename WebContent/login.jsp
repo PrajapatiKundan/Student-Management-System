@@ -13,19 +13,21 @@
 
 	<fieldset style="width: 20%; margin: 100px auto;">
 		<legend>Login for admin</legend>
-		<table>
-			<tr>
-				<td><label>User name</label></td>
-				<td><input></td>
-			</tr>
-			<tr>
-				<td><label>Password</label></td>
-				<td><input></td>
-			</tr>
-			<tr>
-				<td><button>Login</button></td>
-			</tr>
-		</table>
+		<form action="login" method="post">
+			<table>
+				<tr>
+					<td><label id="userName">User name</label></td>
+					<td><input id="userName" name="userName" type="text"></td>
+				</tr>
+				<tr>
+					<td><label id="password">Password</label></td>
+					<td><input id="password" name="password" type="password"></td>
+				</tr>
+				<tr>
+					<td><button type="submit">Login</button></td>
+				</tr>
+			</table>
+		</form>
 	</fieldset>
 </body>
 </html>
