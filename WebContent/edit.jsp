@@ -7,7 +7,7 @@
 <title>Edit details</title>
 </head>
 <body>
-	<fieldset style="width: 25%; margin: 100px auto;">
+	<fieldset style="width: 25%; margin: 100px auto; border-radius: 5x;">
 		<legend>Edit student details</legend>
 		<form action="login" method="post">
 			<table>
@@ -39,7 +39,7 @@
 							value="Civil Engineering">Civil Engineering</label><br></td>
 				</tr>
 				<tr>
-					<td><button type="submit">Edit</button></td>
+					<td><button type="submit">Save</button></td>
 				</tr>
 			</table>
 		</form>

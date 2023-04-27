@@ -7,7 +7,7 @@
 <title>Register student</title>
 </head>
 <body>
-	<fieldset style="width: 25%; margin: 100px auto;">
+	<fieldset style="width: 25%; margin: 100px auto; border-radius: 5px;">
 		<legend>Register new student</legend>
 		<form action="login" method="post">
 			<table>

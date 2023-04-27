@@ -11,9 +11,9 @@
 		Welcome to the <u>Student Management System</u>
 	</h1>
 
-	<fieldset style="width: 20%; margin: 100px auto;">
+	<fieldset style="width: 20%; margin: 100px auto; border-radius: 5px;">
 		<legend>Login for admin</legend>
-		<form action="login" method="post">
+		<form action="login" method="post" style="margin-bottom: 0px;">
 			<table>
 				<tr>
 					<td><label id="userName">User name</label></td>
