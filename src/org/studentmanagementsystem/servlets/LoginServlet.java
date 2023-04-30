@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.studentmanagementsystem.services.AuthenticateService;
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 
-		if (userName.equalsIgnoreCase("kundan")) {
+		if (AuthenticateService.authenticate(userName, password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userName", userName);
 			session.setAttribute("password", password);
@@ -31,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
 			dispatcher.include(request, response);
 			writer.print("<h4 style=\"text-align: center; color: red\">\r\n"
-					+ "		Please enter correct user name and password!\r\n" + "</h4>");
+					+ "		Invalid credentials please try again!\r\n" + "</h4>");
 		}
 	}
 }
