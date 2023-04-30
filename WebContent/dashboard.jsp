@@ -28,8 +28,10 @@ table th:last-child {
 </style>
 </head>
 <body style="background-color: #E6E6E6;">
+	<form action="dashboard" method="post">
 	<table>
 		<tr>
+			<th>Roll number</th>
 			<th>Student name</th>
 			<th>Father name</th>
 			<th>City</th>
@@ -38,6 +40,19 @@ table th:last-child {
 			<th>Action</th>
 		</tr>
 		<tr>
+			<td name="rollNumber" value="100">100</td>
+			<td>Sachin Tendulkar</td>
+			<td>Rameshbhai</td>
+			<td>Mumbai</td>
+			<td>9876543210</td>
+			<td>Arts with Psychology</td>
+			<td>
+				<button name="action" value="101edit" type="submit">Edit</button>
+				<button name="action" value="101delete" type="submit">Delete</button>
+			</td>
+		</tr>
+		<tr>
+			<td>100</td>
 			<td>Sachin Tendulkar</td>
 			<td>Rameshbhai</td>
 			<td>Mumbai</td>
@@ -49,6 +64,7 @@ table th:last-child {
 			</td>
 		</tr>
 		<tr>
+			<td>100</td>
 			<td>Sachin Tendulkar</td>
 			<td>Rameshbhai</td>
 			<td>Mumbai</td>
@@ -60,6 +76,7 @@ table th:last-child {
 			</td>
 		</tr>
 		<tr>
+			<td>100</td>
 			<td>Sachin Tendulkar</td>
 			<td>Rameshbhai</td>
 			<td>Mumbai</td>
@@ -71,23 +88,11 @@ table th:last-child {
 			</td>
 		</tr>
 		<tr>
-			<td>Sachin Tendulkar</td>
-			<td>Rameshbhai</td>
-			<td>Mumbai</td>
-			<td>9876543210</td>
-			<td>Arts with Psychology</td>
-			<td>
-				<button>Edit</button>
-				<button>Delete</button>
-			</td>
-		</tr>
-		<tr>
-			<td style="border-right: none; border-top: none; padding: 15px;"><button>
+			<td style="border-right: none; border-top: none; padding: 15px;" colspan="2">
+				<button type="submit" name="action" value="register">
 					+ Register new student</button></td>
-			<td
-				style="border-left: none; border-right: none; border-top: none; text-align: right; padding: 15px;"
-				colspan="5"><button>&lt; Back</button></td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>

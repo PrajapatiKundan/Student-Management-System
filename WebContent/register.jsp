@@ -7,7 +7,7 @@
 <title>Register student</title>
 </head>
 <body>
-	<fieldset style="width: 25%; margin: 100px auto; border-radius: 5px;">
+	<fieldset style="width: 21%; margin: 100px auto; border-radius: 5px;">
 		<legend>Register new student</legend>
 		<form action="login" method="post">
 			<table>
@@ -40,6 +40,7 @@
 				</tr>
 				<tr>
 					<td><button type="submit">+ Register</button></td>
+					<td style="text-align: right;"><button type="submit">&lt; Back</button></td>
 				</tr>
 			</table>
 		</form>

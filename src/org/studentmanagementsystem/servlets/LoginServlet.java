@@ -1,4 +1,4 @@
-package org.studentmanagementsystem;
+package org.studentmanagementsystem.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
