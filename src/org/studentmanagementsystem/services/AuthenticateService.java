@@ -20,7 +20,7 @@ public class AuthenticateService {
 			statement.setString(2, password);
 			
 			ResultSet set = statement.executeQuery();
-			//System.out.println("user name outside: " + set.getString("user_name"));
+			
 			while(set.next()) {
 				System.out.println("user name: " + set.getString("user_name"));
 				isValidUser = true;
@@ -28,7 +28,6 @@ public class AuthenticateService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return isValidUser;
 	}
 }

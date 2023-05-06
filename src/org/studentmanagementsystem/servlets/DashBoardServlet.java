@@ -13,13 +13,11 @@ public class DashBoardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* TODO Authenticate first */
 		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* TODO Authenticate first */
 		String actionParam = request.getParameter("action");
 		String action = null;
 		int rollNumber = 0;
@@ -34,9 +32,6 @@ public class DashBoardServlet extends HttpServlet {
 			action = "register";
 		} 
 		
-		System.out.println("Action = " + action);
-		System.out.println("rollNumber = " + rollNumber);
-
 		if (action.equals("edit")) {
 			response.sendRedirect("edit");
 		} else if (action.equals("register")) {

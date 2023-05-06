@@ -9,36 +9,34 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = "/*")
+/*
+ * Register urls here if you want to authenticate user first 
+ */
+
+@WebFilter(urlPatterns = { 
+		"/dashboard", 
+		"/edit",
+		"/register", 
+		"/delete" 
+})
 public class AuthenticateFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		boolean isAuthenticationRequired = false;
-		String[] urlRequiresAuthentication = { 
-			"/StudentManagementSystem/dashboard", 
-			"/StudentManagementSystem/edit",
-			"/StudentManagementSystem/register", 
-			"/StudentManagementSystem/delete", 
-		};
-		String temp = httpServletRequest.getRequestURI();
-		for(String url: urlRequiresAuthentication) {
-			if(httpServletRequest.getRequestURI().startsWith(url)) {
-				isAuthenticationRequired = true;
-				break;
-			}
-		}
+		// Type casted ServletRequest to HttpServletRequest
 		
-		if(isAuthenticationRequired) {
-			HttpSession session = httpServletRequest.getSession();
-			if(session.getAttribute("userName")==null) {
-				httpServletRequest.getRequestDispatcher("").forward(httpServletRequest, response);
-			}
-		} 
-		chain.doFilter(httpServletRequest, response);
+		HttpSession session = httpServletRequest.getSession();
+
+		if (session.getAttribute("userName") == null) {
+			HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+			httpServletResponse.sendRedirect("login");
+		} else {
+			chain.doFilter(httpServletRequest, response);
+		}
 	}
 }
