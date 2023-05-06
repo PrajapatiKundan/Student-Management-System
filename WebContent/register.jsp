@@ -7,13 +7,13 @@
 <title>Register student</title>
 </head>
 <body>
-	<fieldset style="width: 21%; margin: 100px auto; border-radius: 5px;">
+	<fieldset style="width: 22%; margin: 100px auto; border-radius: 5px;">
 		<legend>Register new student</legend>
-		<form action="login" method="post">
+		<form action="register" method="post">
 			<table>
 				<tr>
-					<td><label id="stdentName">Student name</label></td>
-					<td><input id="stdentName" name="stdentName" type="text"></td>
+					<td><label id="name">Student name</label></td>
+					<td><input id="name" name="name" type="text"></td>
 				</tr>
 				<tr>
 					<td><label id="fatherName">Father name</label></td>
