@@ -64,12 +64,12 @@ table th:last-child {
 				<td><%=student.getPhone()%></td>
 				<td><%=student.getCourse()%></td>
 				<td>
-					<%
-					out.println("<button name=\"action\" value=\"edit:" + Integer.toString(student.getRollNumer())
-							+ "\" type=\"submit\">Edit</button>");
-					out.println("<button name=\"action\" value=\"delete:" + Integer.toString(student.getRollNumer())
-							+ "\" type=\"submit\">Delete</button>");
-					%>
+					<button name="action"
+						value=<%="edit:" + Integer.toString(student.getRollNumer())%>
+						type="submit">Edit</button>
+					<button name="action"
+						value=<%="delete:" + Integer.toString(student.getRollNumer())%>
+						type="submit">Delete</button>
 				</td>
 			</tr>
 			<%

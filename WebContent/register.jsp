@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,6 @@
 				</tr>
 				<tr>
 					<td><button type="submit">+ Register</button></td>
-					<td style="text-align: right;"><button type="submit">&lt; Back</button></td>
 				</tr>
 			</table>
 		</form>

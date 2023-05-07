@@ -22,7 +22,6 @@ public class AuthenticateService {
 			ResultSet set = statement.executeQuery();
 			
 			while(set.next()) {
-				System.out.println("user name: " + set.getString("user_name"));
 				isValidUser = true;
 			}
 		} catch (SQLException e) {

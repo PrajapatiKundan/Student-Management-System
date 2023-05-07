@@ -72,4 +72,50 @@ public class ApplicationDao {
 		}
 		return rowsUpdated;
 	}
+	
+	public static Student findStudentByRollNumber(int rollNumber) {
+		Student student = null;
+		try {
+			Connection connection = DBConnection.getConnectionToDatabbase();
+			String query = "select * from students where roll_number=" + rollNumber;
+			Statement statement = connection.createStatement();
+			ResultSet set = statement.executeQuery(query);
+			
+			if(set!=null) {
+				while (set.next()) {
+					student = new Student();
+					student.setRollNumer(set.getInt("roll_number"));
+					student.setName(set.getString("name"));
+					student.setFatherName(set.getString("father_name"));
+					student.setCity(set.getString("city"));
+					student.setPhone(set.getString("phone"));
+					student.setCourse(set.getString("course"));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return student;
+	}
+	
+	public static int updateStudent(Student student) {
+		int rowsUpdated = 0;
+		try {
+			Connection connection = DBConnection.getConnectionToDatabbase();
+			String query = "update students set name=?, father_name=?, city=?, phone=?, course=? where roll_number=?";
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			
+			preparedStatement.setString(1, student.getName());
+			preparedStatement.setString(2, student.getFatherName());
+			preparedStatement.setString(3, student.getCity());
+			preparedStatement.setString(4, student.getPhone());
+			preparedStatement.setString(5, student.getCourse());
+			preparedStatement.setInt(6, student.getRollNumer());
+			
+			rowsUpdated = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rowsUpdated;
+	}
 }
