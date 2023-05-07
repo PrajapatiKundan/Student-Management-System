@@ -28,22 +28,20 @@ public class DashBoardServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String actionParam = request.getParameter("action");
-		String action = null;
+		String[] actionParam = request.getParameter("action").split(":");
+		String action = actionParam[0];
 		int rollNumber = 0;
-
-		if (actionParam.contains("edit")) {
-			action = "edit";
-			rollNumber = Integer.parseInt(actionParam.replace(action, ""));
-		} else if (actionParam.contains("delete")) {
-			action = "delete";
-			rollNumber = Integer.parseInt(actionParam.replace(action, ""));
-		} else if (actionParam.contains("register")) {
-			action = "register";
-		} 
+		
+		if(Integer.parseInt(actionParam[1])>0)
+			rollNumber = Integer.parseInt(actionParam[1]);
 		
 		if (action.equals("edit")) {
 			response.sendRedirect("edit");
+		} else if (action.equals("delete")) {
+			int rowsUpdated = ApplicationDao.deleteStudentRecord(rollNumber);
+			if (rowsUpdated>0) {
+				response.sendRedirect("dashboard");
+			}
 		} else if (action.equals("register")) {
 			response.sendRedirect("register");
 		}

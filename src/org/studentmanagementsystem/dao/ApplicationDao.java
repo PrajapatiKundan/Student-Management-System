@@ -38,6 +38,7 @@ public class ApplicationDao {
 		}
 		return students;
 	}
+	
 	public static int registerStudent(Student student) {
 		int rowsUpdated = 0;
 		try {
@@ -50,6 +51,21 @@ public class ApplicationDao {
 			preparedStatement.setString(4, student.getCity());
 			preparedStatement.setString(5, student.getPhone());
 			preparedStatement.setString(6, student.getCourse());
+			rowsUpdated = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rowsUpdated;
+	}
+	
+	public static int deleteStudentRecord(int rollNumber) {
+		int rowsUpdated = 0;
+		
+		try {
+			Connection connection = DBConnection.getConnectionToDatabbase();
+			String query = "delete from students where roll_number=?";
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, rollNumber);
 			rowsUpdated = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

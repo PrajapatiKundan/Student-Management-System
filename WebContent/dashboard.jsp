@@ -64,8 +64,12 @@ table th:last-child {
 				<td><%=student.getPhone()%></td>
 				<td><%=student.getCourse()%></td>
 				<td>
-					<button name="action" value="101edit" type="submit">Edit</button>
-					<button name="action" value="101delete" type="submit">Delete</button>
+					<%
+					out.println("<button name=\"action\" value=\"edit:" + Integer.toString(student.getRollNumer())
+							+ "\" type=\"submit\">Edit</button>");
+					out.println("<button name=\"action\" value=\"delete:" + Integer.toString(student.getRollNumer())
+							+ "\" type=\"submit\">Delete</button>");
+					%>
 				</td>
 			</tr>
 			<%
@@ -81,7 +85,8 @@ table th:last-child {
 		</table>
 	</form>
 	<h3 style="text-align: center;">
-		Total number of students: <%=application.getAttribute("totalStudents") %>
+		Total number of students:
+		<%=application.getAttribute("totalStudents")%>
 	</h3>
 </body>
 </html>
